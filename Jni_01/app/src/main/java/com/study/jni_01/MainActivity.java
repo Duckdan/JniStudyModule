@@ -27,13 +27,20 @@ public class MainActivity extends AppCompatActivity {
         final JniTest jniTest = new JniTest();
         TextView tv1 = findViewById(R.id.sample_text_c);
         tv1.setText("C语言::" + jniTest.getStringFromJni());
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jniTest.jniRef();
+            }
+        });
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "jnijnijni", Toast.LENGTH_SHORT).show();
                 System.out.println("java我要学习JNI");
                 jniTest.definePrint("我要学习JNI");
+
+                jniTest.showToastFromCOrCPlusPlus(MainActivity.this, "C/C++调用java");
             }
         });
     }

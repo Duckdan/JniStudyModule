@@ -13,10 +13,18 @@ extern "C" {
  * Signature: (Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_jni_JniTest_definePrint
-  (JNIEnv *, jobject, jstring);
+        (JNIEnv *, jobject, jstring);
 
 
 JNIEXPORT jstring JNICALL Java_jni_JniTest_getStringFromJni(JNIEnv *env, jobject thiz);
+
+JNIEXPORT void JNICALL
+Java_jni_JniTest_showToastFromCOrCPlusPlus(JNIEnv *env, jobject thiz, jobject context,
+                                           jstring toast_content);
+
+JNIEXPORT void JNICALL
+Java_jni_JniTest_jniRef(JNIEnv *env, jobject thiz);
+
 #ifdef __cplusplus
 }
 #endif
